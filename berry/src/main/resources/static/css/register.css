@@ -1,0 +1,27 @@
+body {
+    background-color: #fff;
+}
+
+*[role="form"] {
+	border: 1px solid #fff;
+    max-width: 600px;
+    padding: 15px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 50px;
+}
+
+*[role="form"] h2 {
+    margin-left: 5em;
+    margin-bottom: 1em;
+}
+
+
+.temp123
+{
+margin: 0 auto;
+margin-left: auto;
+margin-right: auto;
+text-align:center;
+}
+

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+  <link rel="apple-touch-icon" sizes="57x57" href="images/favicon_berry/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="images/favicon_berry/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/favicon_berry/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="images/favicon_berry/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/favicon_berry/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="images/favicon_berry/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="images/favicon_berry/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="images/favicon_berry/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon_berry/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="images/favicon_berry/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_berry/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="images/favicon_berry/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon_berry/favicon-16x16.png">
+<link rel="manifest" href="images/favicon_berry/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>berry - Social Media of Note Sharing!</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+  
+    <!-- Search -->
+  <link href="/css/style.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">Settings </div>
+      <div class="list-group list-group-flush">
+      <a href="home" class="list-group-item list-group-item-action bg-light">Home</a>
+        <a href="index" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        <a href="searchuser" class="list-group-item list-group-item-action bg-light">Discover</a>
+        <a href="addnote" class="list-group-item list-group-item-action bg-light">Share Note</a>
+        <a href="profile" class="list-group-item list-group-item-action bg-light">Profile</a>
+        <a href="settings" class="list-group-item list-group-item-action bg-light">Settings</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper"  style="background-color:#fff">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <img id="menu-toggle"src="/images/unnamed.png"></img>
+        
+<nav class="nav navbar-nav navbar-center">
+
+</nav>
+  <form class="form-inline" th:action="@{/search}" method="POST">
+<div class="wrap">
+   <div class="search">
+      <input type="text" class="searchTerm" placeholder="Search by Course Name" id="courseName" name="courseName">
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+   </div>
+</div>
+  </form>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="addnote">Upload <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Logout</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ...
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">About Us</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+<div class="container p-t-55">
+            	<form class="form-horizontal" id="my-form" th:action="@{/settings}" th:object="${user}" method="POST">
+
+                <strong><h4>&nbsp Change Password</h4></strong>
+                <br><br>               
+                
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" th:field="*{firstName}" id="firstName" name="firstName" placeholder="First Name" readonly="readonly" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" th:field="*{lastName}" id="lastName" name="lastName" placeholder="Last Name" readonly="readonly" class="form-control" autofocus>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="text" th:field="*{email}" id="email" name="email" placeholder="E-Mail" readonly="readonly" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="col-sm-3 control-label">School</label>
+                    <div class="col-sm-9">
+                        <input type="text" th:field="*{schoolID}" id="schoolID" name="schoolID" placeholder="School" readonly="readonly" class="form-control" autofocus>
+                    </div>
+                </div>
+                
+               	<div class="form-group">
+                    <label for="lastName" class="col-sm-3 control-label">Active</label>
+                    <div class="col-sm-9">
+                        <input type="text" th:field="*{enabled}" id="isEnabled" name="schoolID" placeholder="Is Enabled?" readonly="readonly" class="form-control" autofocus>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userName" class="col-sm-3 control-label">Username</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="username" name="username" th:field="*{username}" placeholder="Username" class="form-control" readonly="readonly" autofocus>                        
+                    </div>
+                </div>
+                
+                
+                <div class="form-group">
+                    <label for="password" class="col-sm-3 control-label"> New Password</label>
+                    <div class="col-sm-9">
+                        <input type="password"  id="password" name="password" th:field="*{password}"  placeholder="Password" class="form-control" required>
+                    </div>
+                </div>
+                
+                 <div class="form-group">
+                    <label for="password" class="col-sm-3 control-label"> Confirm Password</label>
+                    <div class="col-sm-9">
+                        <input type="password"  id="confirm_password" name="confirm_password" placeholder="Confirm Password" class="form-control">
+                    </div>
+                </div>
+                <script>
+
+                var password = document.getElementById("password")
+                , confirm_password = document.getElementById("confirm_password");
+
+              function validatePassword(){
+                if(password.value != confirm_password.value) {
+                  confirm_password.setCustomValidity("Passwords Don't Match");
+                } else {
+                  confirm_password.setCustomValidity('');
+                }
+              }
+
+              password.onchange = validatePassword;
+              confirm_password.onkeyup = validatePassword;
+                
+                </script>
+                
+                <!-- /.form-group -->
+                <br/>
+                <br/>
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <button type="submit" class="btn btn-primary btn-block" style="background-color:#87398C">Submit</button>
+                    </div>
+                </div>
+            </form> <!-- /form -->
+        </div> <!-- ./container -->
+<br/>
+<br/>
+<br/>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/jquery/jquery.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>

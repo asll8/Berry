@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+  <link rel="apple-touch-icon" sizes="57x57" href="images/favicon_berry/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="images/favicon_berry/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/favicon_berry/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="images/favicon_berry/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/favicon_berry/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="images/favicon_berry/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="images/favicon_berry/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="images/favicon_berry/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon_berry/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="images/favicon_berry/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_berry/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="images/favicon_berry/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon_berry/favicon-16x16.png">
+<link rel="manifest" href="images/favicon_berry/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>berry - Social Media of Note Sharing!</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+  
+    <!-- Search -->
+  <link href="/css/style.css" rel="stylesheet">
+  
+      <!-- card -->
+  <link href="/css/card.css" rel="stylesheet">
+  
+      <!-- FONT AWESOME -->
+  <link href="/fontawesome-free/css/all.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">Discover </div>
+      <div class="list-group list-group-flush">
+        <a href="home" class="list-group-item list-group-item-action bg-light">Home</a>
+        <a href="index" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        <a href="searchuser" class="list-group-item list-group-item-action bg-light">Discover</a>
+        <a href="addnote" class="list-group-item list-group-item-action bg-light">Share Note</a>
+        <a href="profile" class="list-group-item list-group-item-action bg-light">Profile</a>
+        <a href="settings" class="list-group-item list-group-item-action bg-light">Settings</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper" style="background-color:#fff">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <img id="menu-toggle"src="/images/unnamed.png"></img>
+        
+<nav class="nav navbar-nav navbar-center">
+
+</nav>
+  <form class="form-inline" th:action="@{/searchuserbyid}" method="POST">
+<div class="wrap">
+   <div class="search">
+      <input type="text" class="searchTerm" placeholder="Search by Username" id="username" name="username">
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+   </div>
+</div>
+  </form>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="addnote">Upload <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Logout</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ...
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">About Us</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid" style="background-color:#fff">
+<div class="container">
+<br>
+<h5>Users</h5>
+<hr>
+<div class="card">
+<table class="table table-borderless">
+<thead class="text-muted">
+<tr>
+
+</tr>
+</thead>
+<tbody>
+<tr th:each="user : ${userList}">
+	<td>
+<figure class="media">
+	<div class="profile-img">
+       <img src="images/profileResized.png" alt=""/>
+    </div>
+	<figcaption class="media-body">	
+		<h6 class="title text-truncate" th:text="${user.username}" th:value="${user.username}" id="username"></h6>
+		<dl class="param param-inline small">
+		  <dd th:text="${user.schoolID}" th:value="${user.schoolID}" id="schoolID" ></dd>
+		</dl>
+	</figcaption>
+</figure> 
+	</td>
+	<td class="text-right"> 
+	<form th:action="@{searchuser}" method="POST">
+	 <input type=hidden name="username" th:value="${user.username}"/>
+	 
+	 <div>
+	<span id="loading {{ $topdebater->id }}"></span>
+    <button class="btn btn-success unfollow" id="following {{ $topdebater->id }}" onClick="({{ $topdebater->id }},'following');" style="background-color:#87398C">View</button>
+     </div>
+	
+	<span id="loading {{ $topdebater->id }}"></span>
+            <button class="btn btn-success unfollow" id="following {{ $topdebater->id }}" onClick="({{ $topdebater->id }},'following');" style="background-color:#87398C">Following</button>
+
+            <span style="display:none;" class="btn follow" id="follow {{ $topdebater->id }} ?>" onClick="({{ $topdebater->id }},'follow');">Follow</span>
+
+
+
+            <span id="loading{{ $topdebater->id }}"></span>
+            <button class="btn btn-default follow" id="follow{{ $topdebater->id }}" onClick="({{ $topdebater->id }},'follow');">Follow</button>
+
+            <span style="display:none;" class="button following" id="followingfollow{{ $topdebater->id }}" onClick="(follow{{ $topdebater->id }},'following');">Following</span>
+
+      
+	</form>
+	</td>
+	
+</tr>
+
+</tbody>
+</table>
+</div> <!-- card.// -->
+
+</div> 
+<!--container end.//-->
+<br><br>    
+      
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/jquery/jquery.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+
+
+        $("#follow").on('click', '.follow', 
+
+        		function(event) {
+                     debugger;
+                     event.preventDefault();
+                     var cur = "#" + this.id;
+                     var toFollow = {
+                "followerId" : this.id
+            };
+      
+                 $("#follow").fadeOut(300);
+                 $.ajax({
+                     url : "../follow",
+                     data : toFollow,
+                     dataType : 'json',
+                     type : "POST",
+                     success : function(data) {
+                         if (data) {
+                             console.log(data);
+                             console.log(cur);
+                             $(cur).removeClass("btn-default")
+                                     .addClass("btn-success");
+                             $(cur).removeClass("follow").addClass(
+                                     "follow");
+                             $(cur).html("Following");
+                             $("#follow").fadeIn(300);
+                         } else {
+                             console.log(data);
+                             $(cur).addClass("btn-default")
+                                     .removeClass("btn-success");
+                             $(cur).removeClass("follow").addClass(
+                                     "follow");
+                             $(cur).html("Follow");
+                             $("#follow").fadeIn(300);
+                         }
+
+                     }
+                 })
+             });
+         });
+    
+  </script>
+  
+
+</body>
+
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <link rel="apple-touch-icon" sizes="57x57" href="images/favicon_berry/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="images/favicon_berry/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/favicon_berry/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="images/favicon_berry/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/favicon_berry/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="images/favicon_berry/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="images/favicon_berry/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="images/favicon_berry/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon_berry/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="images/favicon_berry/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_berry/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="images/favicon_berry/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon_berry/favicon-16x16.png">
+<link rel="manifest" href="images/favicon_berry/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>berry - Social Media of Note Sharing!</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+  
+    <!-- Search -->
+  <link href="/css/style.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">New Note </div>
+      <div class="list-group list-group-flush">
+      <a href="home" class="list-group-item list-group-item-action bg-light">Home</a>
+        <a href="index" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        <a href="searchuser" class="list-group-item list-group-item-action bg-light">Discover</a>
+        <a href="addnote" class="list-group-item list-group-item-action bg-light">Share Note</a>
+        <a href="profile" class="list-group-item list-group-item-action bg-light">Profile</a>
+        <a href="settings" class="list-group-item list-group-item-action bg-light">Settings</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <img id="menu-toggle"src="/images/unnamed.png"></img>
+        
+<nav class="nav navbar-nav navbar-center">
+
+</nav>
+  <form class="form-inline" th:action="@{/search}" method="POST">
+<div class="wrap">
+   <div class="search">
+      <input type="text" class="searchTerm" placeholder="Search by Course Name" id="courseName" name="courseName">
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+   </div>
+</div>
+  </form>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+
+            <li class="nav-item">
+              <a class="nav-link" href="/">Logout</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ...
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">About Us</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+      
+        <form th:action="@{/addnote}" th:object="${note}" method="POST" action="" id="singleUploadForm" name="singleUploadForm" >
+<br>
+
+<style>
+      @import "https://fonts.googleapis.com/css?family=Roboto";
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+.step-wrapper {
+  padding: 20px 0;
+  display: none;
+}
+.step-wrapper.active {
+  display: block;
+}
+
+.step-indicator {
+  border-collapse: separate;
+  display: table;
+  margin-left: 0px;
+  position: relative;
+  table-layout: fixed;
+  text-align: center;
+  vertical-align: middle;
+  padding-left: 0;
+  padding-top: 20px;
+}
+.step-indicator li {
+  display: table-cell;
+  position: relative;
+  float: none;
+  padding: 0;
+  width: 1%;
+}
+.step-indicator li:after {
+  background-color: #ccc;
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  width: 100%;
+  top: 32px;
+}
+.step-indicator li:after {
+  left: 50%;
+}
+.step-indicator li:last-child:after {
+  display: none;
+}
+.step-indicator li.active .step {
+  border-color: #8B008B;
+  color: #8B008B;
+}
+.step-indicator li.active .caption {
+  color: #8B008B;
+}
+.step-indicator li.complete:after {
+  background-color: A9A9A9;
+}
+.step-indicator li.complete .step {
+  border-color: A9A9A9;
+  color: A9A9A9;
+}
+.step-indicator li.complete .caption {
+  color: A9A9A9;
+}
+.step-indicator .step {
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  color: #ccc;
+  font-size: 24px;
+  height: 64px;
+  line-height: 64px;
+  margin: 0 auto;
+  position: relative;
+  width: 64px;
+  z-index: 1;
+}
+.step-indicator .step:hover {
+  cursor: pointer;
+}
+.step-indicator .caption {
+  color: #ccc;
+  padding: 11px 16px;
+}
+
+    </style>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+<div class="container">
+<div id="app">
+<step-navigation :steps="steps" :currentstep="currentstep">
+</step-navigation>
+<div v-show="currentstep == 1">
+<h3>Step 1</h3>
+<div class="form-group">
+<label for="select">Select Your University</label>
+                        <select th:field="*{schoolID}" class="form-control">                         
+                            <option id=1 value="Sabanci University">Sabancı University</option>
+                            <option id=2 value="Koc University">Koç University</option>
+                            <option id=3 value="Istanbul Technical University">Istanbul Technical University</option>
+                            <option id=4 value="Yeditepe University">Yeditepe University</option>
+                            <option id=5 value="Middle East Technical University">Middle East Technical University</option>
+                            <option	id=6 value="Dokuz Eylul University">Dokuz Eylul University</option>
+                            <option id=7 value="Ege University">Ege University</option>
+                            <option id=8 value="Izmir University of Economics">Izmir University of Economics</option>
+                            <option	id=9 value="Bilkent University">Bilkent University</option>
+                            <option id=10 value="Istanbul University">Istanbul University</option>
+                            <option id=11 value="Erciyes University">Erciyes University</option>
+                            <option	id=12 value="Hacettepe University">Hacettepe University</option>
+                            <option id=13 value="Yıldız Technical University">Yıldız Technical University</option>
+                            <option	id=14 value="Galatasaray University">Galatasaray University</option>
+                            <option id=15 value="Marmara University">Marmara University</option>
+                            <option id=16 value="Ozyegin University">Ozyegin University</option>
+                            <option	id=17 value="Bahcesehir University">Bahcesehir University</option>
+                            <option id=18 value="Bilgi University">Bilgi University</option>
+                            <option id=19 value="Karadeniz Technical University">Karadeniz Technical University</option>
+                            <option	id=20 value="Sakarya University">Sakarya University</option>
+                        </select>
+</div>
+</div>
+<div v-show="currentstep == 2">
+<h3>Step 2</h3>
+<div class="form-group">
+<label for="courseCode">Course Code</label>
+<input type="text" name="courseID" class="form-control"  placeholder="Enter Course Code" th:field="*{courseID}" id="courseID" required>
+<small id="emailHelp" class="form-text text-muted">Example-> IT541</small>
+</div>
+<div class="form-group">
+<label for="courseName">Course Name</label>
+<input type="text" name="courseName" class="form-control" placeholder="Enter Course Name" th:field="*{courseName}" id="courseName" required>
+</div>
+<div class="form-group">
+<label for="select">Year</label>
+<select class="form-control" name="select" th:field="*{year}">
+<option value="2015">2015</option>
+<option value="2016">2016</option>
+<option value="2017">2017</option>
+<option value="2018">2018</option>
+<option value="2019">2019</option>
+</select>
+</div>
+<div class="form-group">
+<label for="select">Semester</label>
+<select class="form-control" name="select" th:field="*{semester}">
+<option value="1">1</option>
+<option value="2">2</option>
+</select>
+</div>
+</div>
+
+<div v-show="currentstep == 3">
+<h3>Step 3</h3>
+<div class="form-group">
+<label for="textarea">Add Document</label>
+<textarea class="form-control" name="textarea" rows="4" th:field="*{attachment}" id="singleFileUploadSuccess" readonly="readonly"></textarea>
+</div>
+<div class="form-group">
+ 
+
+            <div class="upload-content">
+                <div class="single-upload">
+                        <input id="singleFileUploadInput" type="file" name="file" class="file-input" required />
+                        <button type="submit" class="primary submit-btn" >Submit</button>
+                    <div class="upload-response">
+                        <div id="singleFileUploadError"></div>
+                        <div id="singleFileUploadSuccess"></div>
+                    </div>
+                </div>
+            </div>
+
+
+</div>
+</div>
+<step v-for="step in steps" :currentstep="currentstep" :key="step.id" :step="step" :stepcount="steps.length" @step-change="stepChanged">
+</step>
+<script type="x-template" id="step-navigation-template">
+            <ol class="step-indicator">
+                <li v-for="step in steps" is="step-navigation-step" :key="step.id" :step="step" :currentstep="currentstep">
+                </li>
+            </ol>
+        </script>
+<script type="x-template" id="step-navigation-step-template">
+            <li :class="indicatorclass">
+                <div class="step"><i :class="step.icon_class"></i></div>
+                <div class="caption hidden-xs hidden-sm">Step <span v-text="step.id"></span>: <span v-text="step.title"></span></div>
+            </li>
+        </script>
+<script type="x-template" id="step-template">
+            <div class="step-wrapper" :class="stepWrapperClass">
+                <button type="button" class="btn btn-primary"  @click="lastStep" :disabled="firststep">
+                    Back
+                </button>
+                <button type="button" class="btn btn-primary" @click="nextStep" :disabled="laststep">
+                    Next
+                </button>
+                <button type="submit" class="btn btn-primary" v-if="laststep">
+                    Submit
+                </button>
+            </div>
+        </script>
+</div>
+</div>
+</form>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+<script src='css/vue.js'></script>
+<script id="rendered-js">
+      Vue.component("step-navigation-step", {
+  template: "#step-navigation-step-template",
+
+  props: ["step", "currentstep"],
+
+  computed: {
+    indicatorclass() {
+      return {
+        active: this.step.id == this.currentstep,
+        complete: this.currentstep > this.step.id };
+
+    } } });
+
+
+
+Vue.component("step-navigation", {
+  template: "#step-navigation-template",
+
+  props: ["steps", "currentstep"] });
+
+
+Vue.component("step", {
+  template: "#step-template",
+
+  props: ["step", "stepcount", "currentstep"],
+
+  computed: {
+    active() {
+      return this.step.id == this.currentstep;
+    },
+
+    firststep() {
+      return this.currentstep == 1;
+    },
+
+    laststep() {
+      return this.currentstep == this.stepcount;
+    },
+
+    stepWrapperClass() {
+      return {
+        active: this.active };
+
+    } },
+
+
+  methods: {
+    nextStep() {
+      this.$emit("step-change", this.currentstep + 1);
+    },
+
+    lastStep() {
+      this.$emit("step-change", this.currentstep - 1);
+    } } });
+
+
+
+new Vue({
+  el: "#app",
+
+  data: {
+    currentstep: 1,
+
+    steps: [
+    {
+      id: 1,
+      title: "University",
+      icon_class: "fa fa-user-circle-o" },
+
+    {
+      id: 2,
+      title: "Details",
+      icon_class: "fa fa-th-list" },
+
+    {
+      id: 3,
+      title: "Send",
+      icon_class: "fa fa-paper-plane" }] },
+
+
+
+
+  methods: {
+    stepChanged(step) {
+      this.currentstep = step;
+    } } });
+      //# sourceURL=pen.js
+    </script>
+
+
+</div>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/jquery/jquery.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/main.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>

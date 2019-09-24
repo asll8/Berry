@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+  <link rel="apple-touch-icon" sizes="57x57" href="images/favicon_berry/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="images/favicon_berry/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/favicon_berry/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="images/favicon_berry/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/favicon_berry/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="images/favicon_berry/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="images/favicon_berry/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="images/favicon_berry/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon_berry/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="images/favicon_berry/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_berry/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="images/favicon_berry/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon_berry/favicon-16x16.png">
+<link rel="manifest" href="images/favicon_berry/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>berry - Social Media of Note Sharing!</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+  
+    <!-- Search -->
+  <link href="/css/style.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper" >
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <img id="menu-toggle"src="/images/unnamed.png"></img>
+        
+<nav class="nav navbar-nav navbar-center">
+
+</nav>
+  <form class="form-inline">
+<div class="wrap">
+   <div class="search">
+      <input type="text" class="searchTerm" placeholder="Search">
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+   </div>
+</div>
+  </form>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="login">Login <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ...
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="aboutus">About Us</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+
+<div class="container">
+<br>  <h3 class="text-center"> <strong>Notes</strong></h3>
+<hr>
+
+
+
+<div class="card">
+<table class="table table-hover shopping-cart-wrap">
+<thead class="text-muted">
+<tr>
+  <th scope="col">Course</th>
+  <th scope="col" width="130">Year</th>
+  <th scope="col" width="130">Semester</th>
+  <th scope="col" width="130">Added By</th>
+  <th scope="col" width="200" class="text-right">Document</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="note : ${noteList}">
+	<td>
+<figure class="media">
+	<figcaption class="media-body">
+		<h6 class="title text-truncate" th:text="${note.courseName}"></h6>
+		<dl class="param param-inline small">
+		  <dt>Code: </dt>
+		  <dd th:text="${note.courseID}"></dd>
+		</dl>
+		<dl class="param param-inline small">
+		  <dt>University: </dt>
+		  <dd th:text="${note.schoolID}"></dd>
+		</dl>
+	</figcaption>
+</figure> 
+	</td>
+		<td> 
+		<div class="price-wrap"> 
+			<var class="price" th:text="${note.year}"></var> 
+		</div> <!-- price-wrap .// -->
+	</td>
+	<td> 
+		<div class="price-wrap"> 
+			<var class="price" th:text="${note.semester}"></var> 
+		</div> <!-- price-wrap .// -->
+	</td>
+	<td> 
+		<div class="price-wrap"> 
+			<var class="price" th:text="${note.userID}"></var> 
+		</div> <!-- price-wrap .// -->
+	</td>
+	<td class="text-right"> 
+	<a href="login" class="btn btn-primary btn-round" style="background-color:#87398C"> View</a>
+	</td>
+</tr>
+
+</tbody>
+</table>
+</div> <!-- card.// -->
+
+</div> 
+<!--container end.//-->
+
+<br><br>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/jquery/jquery.min.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>

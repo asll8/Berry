@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+
+  <link rel="apple-touch-icon" sizes="57x57" href="images/favicon_berry/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="images/favicon_berry/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/favicon_berry/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="images/favicon_berry/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/favicon_berry/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="images/favicon_berry/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="images/favicon_berry/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="images/favicon_berry/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon_berry/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="images/favicon_berry/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_berry/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="images/favicon_berry/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon_berry/favicon-16x16.png">
+<link rel="manifest" href="images/favicon_berry/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Social Media of NoteSharing">
+  <meta name="keywords" content="Note,Social Media, Share, berry">
+  <meta name="author" content="Asli Atar,Berkay Kandemir">
+
+  <title>berry - Social Media of Note Sharing!</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  
+  <!-- Custom styles for this template -->
+  <link href="css/welcome.css" rel="stylesheet">
+  <link href="css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <img id="menu-toggle"src="images/unnamed.png"></img>
+   
+       <div>
+      <a class="btn btn-primary" style="background-color:#87398C" href="/">Logout</a>
+      <a class="btn btn-primary" style="background-color:#87398C" href="aboutus">About Us</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Masthead -->
+  <header class="masthead text-white text-center">
+    <div class="overlay">
+      </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5">Social Media of Note Sharing!</h1>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form>
+            <div class="form-row">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <input type="text" class="form-control form-control-lg" placeholder="Search">
+              </div>
+              <div class="col-12 col-md-3">
+                <a class="btn btn-block btn-lg btn-primary" style="background-color:#87398C" href="index">Go!</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Icons Grid -->
+  <section class="features-icons bg-light text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-screen-smartphone m-auto text-purple"></i>
+            </div>
+            <h3>Responsive Design</h3>
+            <p class="lead mb-0">Access from wherever you want!</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-energy m-auto text-purple"></i>
+            </div>
+            <h3>Digitize Your Content</h3>
+            <p class="lead mb-0">Store your notes on berry, Access it whenever you want!</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+            <div class="features-icons-icon d-flex">
+              <i class="icon-check m-auto text-purple"></i>
+            </div>
+            <h3>Easy to Use</h3>
+            <p class="lead mb-0">Ready to use with your own content, uploading and downloading is easy as it can be!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image Showcases -->
+  <section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters">
+
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('images/berkay3.png');"></div>
+        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+          <h2>How it works?</h2>
+          <p class="lead mb-0">Capture Notes from Classroom</p>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-lg-6 text-white showcase-img" style="background-image: url('images/test7.png');"></div>
+        <div class="col-lg-6 my-auto showcase-text">
+          <h2>Start Uploading</h2>
+          <p class="lead mb-0">It's easy. Login and start sharing your notes with your friends!</p>
+        </div>
+      </div>
+      <div class="row no-gutters">
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('images/lap_06.png');"></div>
+        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+          <h2>Download, Share Uploaded Contents</h2>
+          <p class="lead mb-0">Find what you need access classroom notes whenever needed!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+<section class="features-icons bg-light text-center">
+
+
+
+<div class="container-fluid">
+
+<div class="container">
+<br>  <h3 class="text-center"> <strong>Notes</strong></h3>
+<hr>
+<form method="GET" th:action="@{/home}">
+<div class="card">
+<table class="table table-hover shopping-cart-wrap">
+<thead class="text-muted">
+<tr>
+  <th scope="col">Course</th>
+  <th scope="col" width="130">Year</th>
+  <th scope="col" width="130">Semester</th>
+  <th scope="col" width="130">Added By</th>
+  <th scope="col" width="200" class="text-right">Document</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr th:each="note : ${noteList}">
+	<td>
+<figure class="media">
+	<figcaption class="media-body">
+		<h6 class="title text-truncate" th:text="${note.courseName}"></h6>
+		<dl class="param param-inline small">
+		  <dt>Code: </dt>
+		  <dd th:text="${note.courseID}"></dd>
+		</dl>
+		<dl class="param param-inline small">
+		  <dt>University: </dt>
+		  <dd th:text="${note.schoolID}"></dd>
+		</dl>
+	</figcaption>
+</figure> 
+	</td>
+		<td> 
+		<div class="price-wrap"> 
+			<var class="price" th:text="${note.year}"></var> 
+		</div> <!-- price-wrap .// -->
+	</td>
+	<td> 
+		<div class="price-wrap"> 
+			<var class="price" th:text="${note.semester}"></var> 
+		</div> <!-- price-wrap .// -->
+	</td>
+	<td> 
+		<div class="price-wrap"> 
+			<var class="price" th:text="${note.userID}"></var> 
+		</div> <!-- price-wrap .// -->
+	</td>
+	<td class="text-right"> 
+	<a href="login" class="btn btn-primary btn-round" style="background-color:#87398C"> View</a>
+	</td>
+</tr>
+</tbody>
+</table>
+</div> <!-- card.// -->
+</form>
+</div> 
+<!--container end.//-->
+
+</div> 
+<!--container end.//-->
+
+<br><br>
+   
+      
+  </section>    
+  <!-- Footer -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-center my-auto">
+          <p class="text-muted small mb-4 mb-lg-0">&copy; Sabanci University Term Project,2019.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="jquery.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  
+   <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>
