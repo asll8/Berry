@@ -141,25 +141,25 @@ public class HomeController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String register(@Valid User user, BindingResult result, HttpServletRequest request) {
-		if (result.hasErrors()) {
-			return "register";
-		} else {
-			Optional<User> check = userRepository.findById(user.getUsername());
-			if (check.isPresent() == false) {
-				userRepository.save(user);
-
-				Authority auth = new Authority();
-				auth.setUsername(user.getUsername());
-				auth.setRole("ROLE_USER");
-				authorityRepository.save(auth);
-				if(!user.getEmail().isEmpty()) {
-					mail(user.getEmail(),"Welcome to berry!","Share or browse your content whenever you want!");			
-				}
-				return "login";
-			} else { // it means that this username exists
-				return "redirect:/register?error";
-			}
-		}	
+	    if (result.hasErrors()) {
+	        return "register";
+	    } else {
+	        Optional<User> check = userRepository.findById(user.getUsername());
+	        if (check.isPresent()) {
+	            userRepository.save(user);
+	
+	            Authority auth = new Authority();
+	            auth.setUsername(user.getUsername());
+	            auth.setRole("ROLE_USER");
+	            authorityRepository.save(auth);
+	            if(!user.getEmail().isEmpty()) {
+	                mail(user.getEmail(),"Welcome to berry!","Share or browse your content whenever you want!");            
+	            }
+	            return "login";
+	        } else { // it means that this username exists
+	            return "redirect:/register?error";
+	        }
+	    }   
 	}
 	
 	
